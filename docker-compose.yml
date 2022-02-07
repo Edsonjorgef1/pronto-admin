@@ -58,6 +58,15 @@ services:
         networks:
             - sail
         ports: [ '23517:8000', '1025:1025', '9912:9912', '9913:9913' ]
+    phpmyadmin:
+        image: phpmyadmin
+        ports:
+            - 81:80
+        environment:
+            - PMA_HOST=mariadb
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        networks:
+            - sail
 
 networks:
     sail:
