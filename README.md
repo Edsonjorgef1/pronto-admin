@@ -6,10 +6,11 @@ Pronto Fuel is a heavilly opnionated starter kit for Laravel powered by Vite. It
 
 ```
 git clone git@github.com:prontostack/pronto-fuel.git
-composer install
 cp .env.example .env
-touch database/database.sqlite
-php artisan key:generate
-php artisan migrate:fresh --seed
-php artisan serve
+composer install
+npm install
+npm run dev
+sail up -d
+sail artisan key:generate
+sail artisan migrate:fresh --seed
 ```
