@@ -1,6 +1,6 @@
 version: '3'
 services:
-    pronto:
+    laravel.test:
         build:
             context: ./docker/8.1
             dockerfile: Dockerfile
@@ -20,9 +20,6 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-        depends_on:
-            - mariadb
-            - redis
     mariadb:
         image: 'mariadb:10'
         ports:

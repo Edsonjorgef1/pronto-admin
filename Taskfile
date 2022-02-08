@@ -35,6 +35,14 @@ function build {
     docker-compose run --rm pronto composer install
 }
 
+function startMinimal {
+    docker-compose up -d laravel.test mariadb redis
+}
+
+function bash {
+    docker-compose exec laravel.test bash
+}
+
 function watch:npm {
 	$SAIL npm run watch
 }
