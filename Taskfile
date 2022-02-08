@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+USER=
+SERVER_IP=
+SAIL=./vendor/bin/sail
+
+# Inspired on https://github.com/adriancooney/Taskfile
+#
+# Install an alias, to be able to simply execute `run`
+# echo 'alias run=./run' >> ~/.aliases
+#
+# alias run=./Taskfile
+# alias help=./Taskfile help
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+function default {
+    help
+}
+
+function publicStorage {
+	$SAIL php artisan storage:link
+}
+
+function mfs {
+	$SAIL php artisan migrate:fresh --seed
+}
+
+function build {
+    docker-compose build
+    docker-compose run --rm pronto composer install
+}
+
+function watch:npm {
+	$SAIL npm run watch
+}
+
+function watch:artisan:test {
+	$SAIL bash -c "SHELL=/bin/bash chokidar \
+	        \"./app/**/*.php\" \"./resources/**/*.php\" \"./packages/**/*.php\" \"./tests/**/*.php\" \
+	        --initial -c './vendor/bin/phpunit --filter \"$1\"'
+	    "
+}
+
+
+TIMEFORMAT="Task completed in %3lR"
+time "${@:-default}"

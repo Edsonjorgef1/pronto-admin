@@ -14,3 +14,10 @@ sail up -d
 sail artisan key:generate
 sail artisan migrate:fresh --seed
 ```
+
+
+Run quicker
+```
+alias run="./Taskfile"
+chmod a+x ./Taskfile
+```
