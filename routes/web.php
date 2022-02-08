@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Spatie\RouteDiscovery\Discovery\Discover;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,6 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-
-    ray('fooo');
-    ray('fooo');
-    ray('fooo');
-
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -32,3 +28,5 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Discover::controllers()->in(app_path('Http/Controllers'));

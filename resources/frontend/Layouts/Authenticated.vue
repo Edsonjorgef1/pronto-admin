@@ -21,6 +21,12 @@
                 >
                   Dashboard
                 </NavLink>
+                <NavLink
+                  :href="route('schema.collections')"
+                  :active="route().current('schema.collections')"
+                >
+                  Schemas
+                </NavLink>
               </div>
             </div>
 
@@ -111,6 +117,14 @@
               :active="route().current('dashboard')"
             >
               Dashboard
+            </ResponsiveNavLink>
+          </div>
+          <div class="pt-2 pb-3 space-y-1">
+            <ResponsiveNavLink
+              :href="route('schema.collections')"
+              :active="route().current('schema.collections')"
+            >
+              Schemas
             </ResponsiveNavLink>
           </div>
 
