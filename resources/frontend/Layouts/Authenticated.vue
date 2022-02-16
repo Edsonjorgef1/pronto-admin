@@ -22,8 +22,8 @@
                   Dashboard
                 </NavLink>
                 <NavLink
-                  :href="route('schema.collections')"
-                  :active="route().current('schema.collections')"
+                  :href="route('admin.databases')"
+                  :active="route().current('admin.databases')"
                 >
                   Schemas
                 </NavLink>

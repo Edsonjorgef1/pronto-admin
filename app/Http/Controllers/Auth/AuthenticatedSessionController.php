@@ -23,8 +23,8 @@ class AuthenticatedSessionController extends Controller
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
             'form' => [
-                'email' => '',
-                'password' => '',
+                'email' => app()->environment('local') ? 'admin@admin.com' : '',
+                'password' => app()->environment('local') ? 'password' : '',
                 'remember' => false
             ]
         ]);
