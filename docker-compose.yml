@@ -21,9 +21,6 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-        depends_on:
-            - mariadb
-            - redis
     mariadb:
         image: 'mariadb:10'
         ports:

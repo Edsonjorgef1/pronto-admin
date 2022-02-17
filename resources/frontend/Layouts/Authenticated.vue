@@ -43,21 +43,9 @@
           <PTabItems v-model="tab">
             <PTabItem id="database">
               <PNav>
-                <PNavLink>
-                  <i-mdi-newspaper-variant-outline />
-                  <span>Posts</span>
-                </PNavLink>
-                <PNavLink>
-                  <i-mdi-account-group-outline />
-                  <span>Authors</span>
-                </PNavLink>
-                <PNavLink>
-                  <i-mdi-tag-outline />
-                  <span>Tags</span>
-                </PNavLink>
-                <PNavLink>
-                  <i-fa-bullhorn />
-                  <span>Ads</span>
+                <PNavLink :href="route('admin.databases')">
+                  <i-mdi-database />
+                  <span>Collections</span>
                 </PNavLink>
               </PNav>
             </PTabItem>
@@ -101,7 +89,10 @@
                   <i-mdi-badge-account-outline />
                   <span>Profile</span>
                 </PNavLink>
-                <PNavLink>
+                <PNavLink
+                  :href="route('logout')"
+                  method="post"
+                >
                   <i-mdi-power-standby />
                   <span>Logout</span>
                 </PNavLink>
@@ -111,8 +102,7 @@
         </div>
       </div>
     </div>
-    <main class="ml-[260px]">
-      <h1>{{ tab }}</h1>
+    <main class="ml-[260px] w-full">
       <slot />
     </main>
     <Toasts />
