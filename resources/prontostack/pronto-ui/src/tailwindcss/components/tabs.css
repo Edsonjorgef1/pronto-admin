@@ -1,0 +1,107 @@
+@layer components {
+    %inverted-radius {
+        content: " ";
+        display: block;
+        position: absolute;
+        background-color: transparent;
+        box-sizing: border-box;
+    }
+
+    %inverted-radius-horizontal {
+        width: 1.5rem;
+        height: 0.75rem;
+    }
+
+    %inverted-radius-vertical {
+        width: 0.75rem;
+        height: 1.5rem;
+    }
+
+    .tab-t {
+        @apply rounded-t-lg transition;
+
+        &::before {
+            @extend %inverted-radius, %inverted-radius-horizontal;
+            @apply transition;
+            bottom: 0;
+            right: 100%;
+            border-bottom-right-radius: theme("borderRadius.lg");
+            box-shadow: 0.75rem 0 0 0 var(--pronto-tab-color);
+        }
+
+        &::after {
+            @extend %inverted-radius, %inverted-radius-horizontal;
+            @apply transition;
+            bottom: 0;
+            left: 100%;
+            border-bottom-left-radius: theme("borderRadius.lg");
+            box-shadow: -0.75rem 0 0 0 var(--pronto-tab-color);
+        }
+    }
+
+    .tab-r {
+        @apply rounded-r-lg transition;
+
+        &::before {
+            @extend %inverted-radius, %inverted-radius-vertical;
+            @apply transition;
+            left: 0;
+            bottom: 100%;
+            border-bottom-left-radius: theme("borderRadius.lg");
+            box-shadow: 0 0.75rem 0 0 var(--pronto-tab-color);
+        }
+
+        &::after {
+            @extend %inverted-radius, %inverted-radius-vertical;
+            @apply transition;
+            left: 0;
+            top: 100%;
+            border-top-left-radius: theme("borderRadius.lg");
+            box-shadow: 0 -0.75rem 0 0 var(--pronto-tab-color);
+        }
+    }
+
+    .tab-b {
+        @apply rounded-b-lg transition;
+
+        &::before {
+            @extend %inverted-radius, %inverted-radius-horizontal;
+            @apply transition;
+            top: 0;
+            right: 100%;
+            border-top-right-radius: theme("borderRadius.lg");
+            box-shadow: 0.75rem 0 0 0 var(--pronto-tab-color);
+        }
+
+        &::after {
+            @extend %inverted-radius, %inverted-radius-horizontal;
+            @apply transition;
+            top: 0;
+            left: 100%;
+            border-top-left-radius: theme("borderRadius.lg");
+            box-shadow: -0.75rem 0 0 0 var(--pronto-tab-color);
+        }
+    }
+
+    .tab-l {
+        @apply rounded-l-lg transition;
+
+        &::before {
+            @extend %inverted-radius, %inverted-radius-vertical;
+            @apply transition;
+            right: 0;
+            bottom: 100%;
+            border-bottom-right-radius: theme("borderRadius.lg");
+            box-shadow: 0 0.75rem 0 0 var(--pronto-tab-color);
+        }
+
+        &::after {
+            @extend %inverted-radius, %inverted-radius-vertical;
+            @apply transition;
+            right: 0;
+            top: 100%;
+            border-top-right-radius: theme("borderRadius.lg");
+            box-shadow: 0 -0.75rem 0 0 var(--pronto-tab-color);
+        }
+    }
+}

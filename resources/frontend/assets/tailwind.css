@@ -1,15 +1,18 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "../../prontostack/pronto-ui/src/tailwindcss/components/tabs.css";
 
-a {
-    @apply text-primary-500;
-}
+@layer base {
+    a {
+        @apply text-primary-500;
+    }
 
-a:hover {
-    @apply text-primary-400;
-}
+    a:hover {
+        @apply text-primary-400;
+    }
 
-a:focus {
-    @apply outline-1 outline-primary-200;
+    a:focus {
+        @apply outline-1 outline-primary-200;
+    }
 }

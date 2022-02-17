@@ -13,7 +13,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.indigo,
+        primary: {
+          ...colors.violet,
+          1000: '#421882'
+        },
         success: colors.green,
         warning: colors.yellow,
         danger: colors.red,
@@ -25,5 +28,8 @@ module.exports = {
     }
   },
 
-  plugins: [require('@tailwindcss/forms')]
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('./resources/prontostack/pronto-ui/src/tailwindcss/pronto-tab-plugin')
+  ]
 }
