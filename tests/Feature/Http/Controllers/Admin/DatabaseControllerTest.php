@@ -28,7 +28,7 @@ class DatabaseControllerTest extends TestCase
         $this->withoutExceptionHandling();
         $this->actingAs(User::query()->find(1));
 
-        $tableToBeCreated = 'expenses';
+        $tableToBeCreated = 'materials';
 
         $this->assertNotContains($tableToBeCreated, $this->getCurrentTableList());
         $response = $this->post('/admin/database', ['table' => CreateTablePayloads::simpleTable()]);

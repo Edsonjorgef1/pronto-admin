@@ -48,6 +48,8 @@ class VoyagerServiceProvider extends ServiceProvider
         $this->app->singleton('voyager', function () {
             return new Voyager();
         });
+
+        $this->loadHelpers();
     }
 
     /**
