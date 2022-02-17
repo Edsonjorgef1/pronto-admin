@@ -55,11 +55,11 @@ class DatabaseController extends Controller
     #[Route(uri: 'databases/create', name: 'admin.database.create')]
     public function create()
     {
-        $this->authorize('browse_database');
-
         $db = $this->prepareDbManager('create');
 
-        dd('db');
+        return Inertia::render('Admin/Database/Create', [
+            'db' => $db,
+        ]);
     }
 
     /**
@@ -165,7 +165,7 @@ class DatabaseController extends Controller
 
             $db->table->setPrimaryKey(['id'], 'primary');
 
-            $db->formAction = route('voyager.database.store');
+            $db->formAction = url('voyager.database.store');
         }
 
         $oldTable = old('table');

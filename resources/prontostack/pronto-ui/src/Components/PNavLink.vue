@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="py-0.5">
     <Link
       v-bind="$attrs"
       class="
@@ -11,13 +11,23 @@
         transition
         duration-300
         font-semibold
-        hover:bg-primary-900
-        hover:text-white"
+        hover:text-white
+      "
+      :class="{
+        'bg-primary-700 text-white cursor-default': active,
+        'hover:bg-primary-900': !active
+      }"
     >
       <slot />
     </Link>
   </li>
 </template>
+
+<script setup>
+defineProps({
+  active: Boolean
+})
+</script>
 
 <script>
 export default {

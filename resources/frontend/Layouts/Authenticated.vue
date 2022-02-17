@@ -43,10 +43,13 @@
           <PTabItems v-model="tab">
             <PTabItem id="database">
               <PNav>
-                <PNavLink :href="route('admin.databases')">
-                  <i-mdi-database />
-                  <span>Collections</span>
-                </PNavLink>
+                <PNavLink
+                  v-for="(item, i) in menu.navItems"
+                  :key="i"
+                  :href="route(item.href)"
+                  :active="route().current(item.isActive)"
+                  v-text="item.text"
+                />
               </PNav>
             </PTabItem>
             <PTabItem id="dashboard">
@@ -110,6 +113,10 @@
 </template>
 
 <script setup>
+import { useNavMenuStore } from '@/Stores/useNavMenuStore.js'
+
+const menu = useNavMenuStore()
+
 const tab = ref('database')
 const accountTab = ref('')
 </script>

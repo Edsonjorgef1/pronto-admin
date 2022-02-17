@@ -12,7 +12,7 @@ class CreateTablePayloads
     {
         $content = <<<EOT
         {
-          "name": "expenses",
+          "name": "materials",
           "oldName": "New Table",
           "columns": [
             {
